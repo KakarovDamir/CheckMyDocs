@@ -13,7 +13,7 @@ def id_card(extracted_text: str) -> tuple[dict, str, bool]:
     try:
         issue_date = re.findall(issue_date_pattern, extracted_text)[0].strip()
         doc_number = re.findall(doc_number_pattern, extracted_text)[0].strip()
-        ssn = re.findall(ssn_pattern, extracted_text)[0].strip()
+        ssn = re.findall(id_ssn_pattern, extracted_text)[0].strip()
     except IndexError:
         return None, "text_not_recognizeable", False
     
@@ -55,4 +55,22 @@ def passport(extracted_text: str) -> tuple[dict, str, bool]:
 
 
 def sat(extracted_text: str) -> tuple[dict, str, bool]:
-    pass
+    try:
+        unique_number = re.findall(unique_number_pattern, extracted_text)[0].strip()
+        sat_ssn = re.findall(sat_ssn_pattern, extracted_text)[0][1:].strip()
+        sat_ict = re.findall(sat_ict_pattern, extracted_text)[0][1:].strip()
+    except IndexError:
+        return None, "text_not_recognizeable", False
+    
+    if not check_nulls(unique_number, sat_ssn, sat_ict):
+        return None, "text_not_recognizeable", False
+
+    cred_obj = {
+        "unique number: ", unique_number,
+        "sat ssn: ", sat_ssn,
+        "sat ict: ", sat_ict
+    }
+
+    return cred_obj, "", True
+
+    # return None, "text_not_recognizeable", False
