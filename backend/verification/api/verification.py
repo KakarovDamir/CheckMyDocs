@@ -13,7 +13,7 @@ USERPROFILE = r'C:\Users\Zhkai'
 
 
 def verify_document(file_type: str, filename: str, doctype: str = 'driver_license') -> tuple[bool, dict]:
-    filename = rf'C:/Users/Zhkai/Desktop/CheckMyDocs/backend/verification/media/{filename}'
+    filename = rf'./media/{filename}'
     if file_type == 'pdf':
         print("verify pdf")
         is_valid, msg  = verify_from_pdf(filename, doctype)
