@@ -1,39 +1,38 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
-import { OnInit } from '@angular/core';
+import { Router, RouterModule, RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { HomeComponent } from './home/home.component';
+import { DocumentComponent } from './document/document.component';
+import { FaqsComponent } from './faqs/faqs.component';
 import { FormsModule } from '@angular/forms';
+import { LanguageService } from './services/language.service';
+import { LoginComponent } from './login/login.component';
+
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CommonModule,FormsModule],
+  imports: [RouterOutlet, RouterModule, CommonModule, HomeComponent, DocumentComponent, FaqsComponent, FormsModule, LoginComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'Verification of documents for authenticity';
-  selectedFile!: File;
+export class AppComponent{
+  selectedLanguage: string = 'rus';
 
-  constructor(private http: HttpClient) { }
+  constructor(private languageService: LanguageService) {}
 
-
-  onFileSelected(event: any): void {
-    this.selectedFile = event.target.files[0];
+  ngOnInit(): void {
+    this.languageService.getSelectedLanguage().subscribe(language => {
+      this.selectedLanguage = language;
+    });
   }
 
-  onUpload(): void {
-    let formData = new FormData();
-    formData.set("name", this.selectedFile.name);
-    formData.set("file", this.selectedFile);
-
-    this.http.post('http://localhost:3001/upload/uploadfiles', formData)
-      .subscribe((response) => {
-        console.log('Upload successful', response);
-      }, error => {
-        console.error('Upload error', error);
-      });
+  onLanguageChange(language: string): void {
+    this.languageService.setLanguage(language);
   }
+
+
+  
+
 }

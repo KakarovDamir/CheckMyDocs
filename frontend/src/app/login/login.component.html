@@ -1,0 +1,59 @@
+<div *ngIf="selectedLanguage === 'rus'">
+    <div class="parent">
+        <div class="container">
+            <h2>
+                <span style="color: black;">Войти в</span>
+                <span style="color: #63B5BD;">    CheckMyDocs</span>
+            </h2>
+        <div class="login-box">
+            <form action="#">
+                <div class="input-box">
+                    <p>Электронная почта или имя пользователя</p>
+                    <input type="email" [(ngModel)]="loginObj.Email" name="Email" required>
+                </div>
+        <div class="input-box">
+            <p>Пароль</p>
+            <input type="password" [(ngModel)]="loginObj.Password" name="Password" required>
+        </div>
+        <button type="button" class="btn" (click)="onLogin()">Войти</button>
+            </form>
+            
+            <div class="signup-link">
+                <p>Нет аккаунта?</p>
+                <a [routerLink]="['/signup']">Регистрация в CheckMyDocs</a>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+  
+
+<div *ngIf="selectedLanguage === 'kz'">
+    <div class="parent">
+        <div class="container">
+            <h2>
+                <span style="color: #63B5BD;">CheckMyDocs</span>
+                <span style="color: black;">   жүйесіне кіру</span>
+            </h2>
+        <div class="login-box">
+            <form action="#">
+                <div class="input-box">
+                    <p>Электрондық пошта немесе пайдаланушы аты</p>
+                    <input type="email" [(ngModel)]="loginObj.Email" name="Email" required>
+                </div>
+        <div class="input-box">
+            <p>Құпия сөз</p>
+            <input type="password" [(ngModel)]="loginObj.Password" name="Password" required>
+        </div>
+        <button type="button" class="btn" (click)="onLogin()">Войти</button>
+            </form>
+            
+            <div class="signup-link">
+                <p>Нет аккаунта?</p>
+                <a [routerLink]="['/signup']">CheckMyDocs жүйесіне тіркелу</a>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+  
