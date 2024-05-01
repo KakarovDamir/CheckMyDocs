@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { UploadService } from '../upload.service';
@@ -14,12 +12,18 @@ import { UploadService } from '../upload.service';
 })
 export class DocumentsComponent {
   selectedFile!: File;
+  accept: string = '';
 
   constructor(
-    private http: HttpClient,
     private uploadService: UploadService
   ) { }
 
+  onPDF(){
+    this.accept = '.pdf';
+  }
+  onImage(){
+    this.accept = '.jpg, .jpeg, .png';
+  }
 
   onFileSelected(event: any): void {
     this.selectedFile = event.target.files[0];
