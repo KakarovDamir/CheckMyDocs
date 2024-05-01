@@ -10,15 +10,16 @@
     justify-content: center; /* Center vertically */
     align-items: center; /* Center horizontally */
     text-align: center; /* Center text */
-    height: 100vh;
-    background-color: #cbeafc; 
+    height: 80vh;
+    width: 100%;
     margin-right: -15px;
   }
   
   .logo_name h1 {
-    margin-bottom: 15px;
+    margin-bottom: -20px;
     font-size: 96px; /* Add space between the logo/name and the welcome message */
     color: #63B5BD;
+    margin-top: 5%;
 }
   .Welcome{
     font-size: 24px;

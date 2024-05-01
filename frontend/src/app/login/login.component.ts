@@ -48,7 +48,4 @@ export class LoginComponent {
   }
 
   selectedLanguage: string = 'rus';
-
-
-  
 }

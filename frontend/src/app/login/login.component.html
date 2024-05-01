@@ -26,7 +26,35 @@
         </div>
     </div>
 </div>
-  
+ 
+<div *ngIf="selectedLanguage === 'en'">
+    <div class="parent">
+        <div class="container">
+            <h2>
+                <span style="color: black;">Login to</span>
+                <span style="color: #63B5BD;">  CheckMyDocs</span>
+            </h2>
+        <div class="login-box">
+            <form action="#">
+                <div class="input-box">
+                    <p>Email or username</p>
+                    <input type="email" [(ngModel)]="loginObj.Email" name="Email" required>
+                </div>
+        <div class="input-box">
+            <p>Password</p>
+            <input type="password" [(ngModel)]="loginObj.Password" name="Password" required>
+        </div>
+        <button type="button" class="btn" (click)="onLogin()">Войти</button>
+            </form>
+            
+            <div class="signup-link">
+                <p>Do not have an account?</p>
+                <a [routerLink]="['/signup']" id = "su">Register to CheckMyDocs</a>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
 
 <div *ngIf="selectedLanguage === 'kz'">
     <div class="parent">
@@ -49,11 +77,10 @@
             </form>
             
             <div class="signup-link">
-                <p>Нет аккаунта?</p>
-                <a [routerLink]="['/signup']">CheckMyDocs жүйесіне тіркелу</a>
+                <p>Аккаунтыңыз жоқ па?</p>
+                <a [routerLink]="['/signup']" id = "su">CheckMyDocs жүйесіне тіркелу</a>
             </div>
         </div>
         </div>
     </div>
 </div>
-  

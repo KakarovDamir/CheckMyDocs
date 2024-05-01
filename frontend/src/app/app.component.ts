@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { Router, RouterModule, RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home/home.component';
-import { DocumentComponent } from './document/document.component';
 import { FaqsComponent } from './faqs/faqs.component';
 import { FormsModule } from '@angular/forms';
 import { LanguageService } from './services/language.service';
@@ -13,7 +12,7 @@ import { LoginComponent } from './login/login.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, RouterModule, CommonModule, HomeComponent, DocumentComponent, FaqsComponent, FormsModule, LoginComponent],
+  imports: [RouterOutlet, RouterModule, CommonModule, HomeComponent,FaqsComponent, FormsModule, LoginComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })

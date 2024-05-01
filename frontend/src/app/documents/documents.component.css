@@ -4,8 +4,8 @@
   }
   
   .document-upload {
-    margin-top: 15%;
-    margin-left: 20%;
+    margin-top: 12%;
+    margin-left: 17%;
     width: 350px;
 }
 
@@ -33,9 +33,9 @@
   .documents {
     background-color: white;
     border-radius: 5px;
-    margin-top: 8%;
+    margin-top: 4%;
     border: 8px solid #63B5BD;
-    margin-left: 3%;
+    margin-left: 4%;
     height: 520px;
     overflow-y: auto;
     width: 660px;
