@@ -1,6 +1,6 @@
 import re
 
-from re_patterns import *
+from api.re_patterns import *
 
 def check_nulls(*credentials) -> bool:
     for credential in credentials:
@@ -10,9 +10,13 @@ def check_nulls(*credentials) -> bool:
 
 
 def id_card(extracted_text: str) -> tuple[dict, str, bool]:
-    issue_date = re.findall(issue_date_pattern, extracted_text)[0].strip()
-    doc_number = re.findall(doc_number_pattern, extracted_text)[0].strip()
-    ssn = re.findall(ssn_pattern, extracted_text)[0].strip()
+    try:
+        issue_date = re.findall(issue_date_pattern, extracted_text)[0].strip()
+        doc_number = re.findall(doc_number_pattern, extracted_text)[0].strip()
+        ssn = re.findall(ssn_pattern, extracted_text)[0].strip()
+    except IndexError:
+        return None, "text_not_recognizeable", False
+    
 
     if not check_nulls(issue_date, doc_number, ssn):
         return None, "text_not_recognizeable", False
@@ -28,9 +32,12 @@ def id_card(extracted_text: str) -> tuple[dict, str, bool]:
 
 
 def driver_license(extracted_text: str) -> tuple[dict, str, bool]:
-    license_number = re.findall(license_number_pattern, extracted_text)[0].strip()
-    valid_date = re.findall(valid_date_pattern, extracted_text)[0][3:].strip()
-
+    try:
+        license_number = re.findall(license_number_pattern, extracted_text)[0].strip()
+        valid_date = re.findall(valid_date_pattern, extracted_text)[0][3:].strip()
+    except IndexError:
+        return None, "text_not_recognizeable", False
+    
     if not check_nulls(license_number, valid_date):
         return None, "text_not_recognizeable", False
 

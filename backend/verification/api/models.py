@@ -5,3 +5,14 @@ class FileData(models.Model):
     uploaded_at = models.DateTimeField(auto_now_add=True)
     file_type = models.CharField(max_length=255)
     doc_type = models.CharField(max_length=255)
+
+
+class FakeIDCardDB(models.Model):
+    issue_date = models.CharField(max_length=20)
+    doc_number = models.CharField(max_length=20)
+    ssn = models.CharField(max_length=20)
+
+
+class FakeDriverLicenseDB(models.Model):
+    license_number = models.CharField(max_length=20)
+    valid_date = models.CharField(max_length=20)
