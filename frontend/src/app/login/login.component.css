@@ -1,0 +1,172 @@
+.parent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 110%;
+  background-color: none;
+  margin-left: 37%;
+  width: 30%;
+  border-radius: 4%;
+  box-shadow: 0 0 10px #63B5BD; /* Subtle shadow for depth */
+  border: 1px solid rgb(27, 136, 199);
+}
+
+h2{
+  color: black;
+  font-weight: bold;
+}
+
+.container {
+  width: 400px;
+  padding: 40px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 4%;
+}
+
+.login-box {
+  text-align: left;
+  width: 100%;
+  justify-content: center;
+}
+
+h2 {
+  margin-bottom: 50px;
+  font-size: 24px;
+  font-family: var(--font-family, CircularSpTitle, CircularSpTitle-Tall, CircularSp-Arab, CircularSp-Hebr, CircularSp-Cyrl, CircularSp-Grek, 
+                  CircularSp-Deva, var(--fallback-fonts, sans-serif));
+}
+
+.input-box {
+  position: relative;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.input-box input {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid  rgb(92, 92, 92);
+  border-radius: 30px;
+  outline: none;
+  font-size: 16px;
+  margin-left: -1%;
+  transition: border-color 0.3s, color 0.3s, transform 0.3s; /* Transition for smooth color change and transform */
+  transform-origin: center; /* Set transform origin to the left */
+}
+
+
+.input-box input:focus {
+  border-color: rgb(41, 40, 40);
+  transform: scale(1.01);  /* Border color on focus */
+  }
+
+  input {
+    color:black;
+}
+
+p{
+  color: black;
+  font-family: var(--font-family, CircularSp, CircularSp-Arab, CircularSp-Hebr, CircularSp-Cyrl, CircularSp-Grek, CircularSp-Deva, var(--fallback-fonts, sans-serif));
+}
+
+.btn {
+  display: block;
+  width: 107%;
+  padding: 15px;
+  background-color: #2191ce;
+  color: #000000;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 16px;
+  font-family: var(--font-family, CircularSp, CircularSp-Arab, CircularSp-Hebr, CircularSp-Cyrl, CircularSp-Grek, CircularSp-Deva, var(--fallback-fonts, sans-serif));
+  transition: border-color 0.3s, color 0.3s, transform 0.3s; /* Transition for smooth color change and transform */
+  transform-origin: center;
+}
+
+.btn:hover {
+  background-color: #2053d4;
+  border: white;
+  transform: scale(1.01);
+}
+
+.webplayer-logo {
+  width: 100px;
+  margin-bottom: 30px;
+}
+
+.login_types{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.login_types button{
+  width: 108%;
+  margin: 1%;
+  padding: 15px;
+  border: 1px solid rgb(92, 92, 92);
+  border-radius: 30px;
+  outline: none;
+  font-size: 16px;
+  color: white;
+  background-color: rgb(28, 25, 25);
+  margin-left: 5%;
+}
+.login_types button:hover{
+  border: 1px solid white;
+}
+
+.line-container {
+  display: flex;
+  align-items: center;
+  margin-top: 7%;
+  margin-bottom: 7%;
+  margin-left: 1%;
+  }
+
+  .line {
+      flex: 1;
+      border-bottom: 1px solid rgb(194, 191, 191);
+  }
+
+  #ili {
+      margin: 0 15px;
+      color: gray;
+  }
+
+  .Forgot_pass{
+      margin-top: 5%;
+      color: white;
+      text-decoration: underline;
+  }
+
+  
+  .signup-link {
+      display: flex;
+      align-items: center; /* Выравнивание элементов по вертикали */
+      margin-top: 20px; /* Отступ сверху */
+      margin-left: -20px;
+  }
+  
+  .signup-link p {
+      margin-right: 5px; /* Отступ между текстом и ссылкой */
+      color: white;
+      font-family: var(--font-family, CircularSp, CircularSp-Arab, CircularSp-Hebr, CircularSp-Cyrl, CircularSp-Grek, CircularSp-Deva, var(--fallback-fonts, sans-serif));
+      font-size: 14px;
+  }
+  
+  .signup-link a {
+      color: #1db954; /* Цвет ссылки */
+      text-decoration: underline; /* Удаление подчерки*/
+      font-family: var(--font-family, CircularSp, CircularSp-Arab, CircularSp-Hebr, CircularSp-Cyrl, CircularSp-Grek, CircularSp-Deva, var(--fallback-fonts, sans-serif));
+    }
+    
+    #su{
+        margin-left: -47px;
+    }

@@ -1,2 +1,130 @@
+<div *ngIf="selectedLanguage === 'rus'">
+  <div class="sidebar">
+    <img src="assets/logo.svg" alt="Logo" class="sidebar-logo" width = "40px">
+    <a [routerLink]="['/home']" class>
+      <div class="sidebar-item" id = "s1">
+        <svg class="item-icon" width="35px" height="64px" viewBox="-0.5 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M19 3.32001H16C14.8954 3.32001 14 4.21544 14 5.32001V8.32001C14 9.42458 14.8954 10.32 16 10.32H19C20.1046 10.32 21 9.42458 21 8.32001V5.32001C21 4.21544 20.1046 3.32001 19 3.32001Z" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M8 3.32001H5C3.89543 3.32001 3 4.21544 3 5.32001V8.32001C3 9.42458 3.89543 10.32 5 10.32H8C9.10457 10.32 10 9.42458 10 8.32001V5.32001C10 4.21544 9.10457 3.32001 8 3.32001Z" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M19 14.32H16C14.8954 14.32 14 15.2154 14 16.32V19.32C14 20.4246 14.8954 21.32 16 21.32H19C20.1046 21.32 21 20.4246 21 19.32V16.32C21 15.2154 20.1046 14.32 19 14.32Z" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M8 14.32H5C3.89543 14.32 3 15.2154 3 16.32V19.32C3 20.4246 3.89543 21.32 5 21.32H8C9.10457 21.32 10 20.4246 10 19.32V16.32C10 15.2154 9.10457 14.32 8 14.32Z" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+        <p class="item-text">Главная</p> 
+      </div>
+    </a>
+    <a [routerLink]="['/documents']">
+      <div class="sidebar-item" id = "s2">
+        <svg class="item-icon" width="35px" height="64px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <rect width="24" height="24"></rect> <path d="M13 3L16 6L19 9M13 3L5 3L5 21L19 21L19 9M13 3L13 9L19 9" stroke="#ffffff" stroke-linejoin="round"></path> </g></svg>
+        <p class="item-text">Документы</p>
+      </div>
+    </a>  
+    <a [routerLink]="['/faqs']">  
+      <div class="sidebar-item" id = "s3">
+        <svg class="item-icon" width="35px" height="40px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M7 21V16H4V4H20V16H12L7 21Z" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+        <p class="item-text">FAQs</p>
+      </div>
+    </a>  
+  </div>
+ 
 
-<router-outlet></router-outlet>
+  <div class="top-bar">
+      <div class="left-section">
+        <h1>Logo</h1> <!-- You can replace this with your logo -->
+      </div>
+      <div class="right-section">
+        <div class="language-select">
+          <select [(ngModel)]="selectedLanguage" (change)="onLanguageChange(selectedLanguage)">
+            <option value="rus">Русский</option>
+            <option value="kz">Қазақша</option>
+            <option value="en">English</option>
+          </select>
+          
+        </div>
+        <div class="login-buttons">
+          <button class = "signup">Зарегистрироваться</button>
+          <button class = "login" [routerLink]="['/login']">Войти</button>
+        </div>
+      </div>
+  </div>
+</div>
+<div *ngIf="selectedLanguage === 'en'">
+  <div class="sidebar">
+    <img src="assets/logo.svg" alt="Logo" class="sidebar-logo" width = "40px">
+    <a [routerLink]="['/home']">
+      <div class="sidebar-item" id = "s1">
+        <svg class="item-icon" width="35px" height="64px" viewBox="-0.5 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M19 3.32001H16C14.8954 3.32001 14 4.21544 14 5.32001V8.32001C14 9.42458 14.8954 10.32 16 10.32H19C20.1046 10.32 21 9.42458 21 8.32001V5.32001C21 4.21544 20.1046 3.32001 19 3.32001Z" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M8 3.32001H5C3.89543 3.32001 3 4.21544 3 5.32001V8.32001C3 9.42458 3.89543 10.32 5 10.32H8C9.10457 10.32 10 9.42458 10 8.32001V5.32001C10 4.21544 9.10457 3.32001 8 3.32001Z" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M19 14.32H16C14.8954 14.32 14 15.2154 14 16.32V19.32C14 20.4246 14.8954 21.32 16 21.32H19C20.1046 21.32 21 20.4246 21 19.32V16.32C21 15.2154 20.1046 14.32 19 14.32Z" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M8 14.32H5C3.89543 14.32 3 15.2154 3 16.32V19.32C3 20.4246 3.89543 21.32 5 21.32H8C9.10457 21.32 10 20.4246 10 19.32V16.32C10 15.2154 9.10457 14.32 8 14.32Z" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+        <p class="item-text">Home</p> 
+      </div>
+    </a>
+    <a [routerLink]="['/documents']">
+      <div class="sidebar-item" id = "s2" >
+        <svg class="item-icon" width="35px" height="64px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <rect width="24" height="24"></rect> <path d="M13 3L16 6L19 9M13 3L5 3L5 21L19 21L19 9M13 3L13 9L19 9" stroke="#ffffff" stroke-linejoin="round"></path> </g></svg>
+        <p class="item-text">Document</p>
+      </div>
+    </a>  
+    <a [routerLink]="['/faqs']">
+      <div class="sidebar-item" id = "s3">
+        <svg class="item-icon" width="35px" height="40px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M7 21V16H4V4H20V16H12L7 21Z" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+        <p class="item-text">FAQs</p>
+      </div>
+    </a>  
+  </div>
+
+  <div class="top-bar">
+      <div class="left-section">
+        <h1>Logo</h1> <!-- You can replace this with your logo -->
+      </div>
+      <div class="right-section">
+        <div class="language-select">
+          <select [(ngModel)]="selectedLanguage" (change)="onLanguageChange(selectedLanguage)">
+            <option value="rus">Русский</option>
+            <option value="kz">Қазақша</option>
+            <option value="en">English</option>
+          </select>          
+        </div>
+        <div class="login-buttons">
+          <button class = "signup">Sign up</button>
+          <button class = "login" [routerLink]="['/login']">Log in</button>
+        </div>
+      </div>
+  </div>
+</div>
+<div *ngIf="selectedLanguage === 'kz'">
+  <div class="sidebar">
+    <img src="assets/logo.svg" alt="Logo" class="sidebar-logo" width = "40px">
+    <a [routerLink]="['/home']">
+      <div class="sidebar-item" id = "s1">
+        <svg class="item-icon" width="35px" height="64px" viewBox="-0.5 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M19 3.32001H16C14.8954 3.32001 14 4.21544 14 5.32001V8.32001C14 9.42458 14.8954 10.32 16 10.32H19C20.1046 10.32 21 9.42458 21 8.32001V5.32001C21 4.21544 20.1046 3.32001 19 3.32001Z" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M8 3.32001H5C3.89543 3.32001 3 4.21544 3 5.32001V8.32001C3 9.42458 3.89543 10.32 5 10.32H8C9.10457 10.32 10 9.42458 10 8.32001V5.32001C10 4.21544 9.10457 3.32001 8 3.32001Z" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M19 14.32H16C14.8954 14.32 14 15.2154 14 16.32V19.32C14 20.4246 14.8954 21.32 16 21.32H19C20.1046 21.32 21 20.4246 21 19.32V16.32C21 15.2154 20.1046 14.32 19 14.32Z" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M8 14.32H5C3.89543 14.32 3 15.2154 3 16.32V19.32C3 20.4246 3.89543 21.32 5 21.32H8C9.10457 21.32 10 20.4246 10 19.32V16.32C10 15.2154 9.10457 14.32 8 14.32Z" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+        <p class="item-text">Бастапқы бет</p> 
+      </div>
+    </a>
+    <a [routerLink]="['/documents']">
+      <div class="sidebar-item" id = "s2">
+        <svg class="item-icon" width="35px" height="64px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <rect width="24" height="24"></rect> <path d="M13 3L16 6L19 9M13 3L5 3L5 21L19 21L19 9M13 3L13 9L19 9" stroke="#ffffff" stroke-linejoin="round"></path> </g></svg>
+        <p class="item-text">Документтер</p>
+      </div>
+    </a>  
+    <a [routerLink]="['/faqs']">
+      <div class="sidebar-item" id = "s3">
+        <svg class="item-icon" width="35px" height="40px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M7 21V16H4V4H20V16H12L7 21Z" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+        <p class="item-text">FAQs</p>
+      </div>
+    </a>  
+  </div>
+
+  <div class="top-bar">
+      <div class="left-section">
+        <h1>Logo</h1> <!-- You can replace this with your logo -->
+      </div>
+      <div class="right-section">
+        <div class="language-select">
+          <select [(ngModel)]="selectedLanguage" (change)="onLanguageChange(selectedLanguage)">
+            <option value="rus">Русский</option>
+            <option value="kz">Қазақша</option>
+            <option value="en">English</option>
+          </select>          
+        </div>
+        <div class="login-buttons">
+          <button class = "signup">Тіркелу</button>
+          <button class = "login" [routerLink]="['/login']">Кіру</button>
+        </div>
+      </div>
+  </div>
+</div>
+  
+<router-outlet></router-outlet>>

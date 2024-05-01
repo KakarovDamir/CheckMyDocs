@@ -1,5 +1,6 @@
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_http_methods
 from django.conf import settings
 
@@ -10,6 +11,7 @@ from api.serializers import FileDataSerializer
 
 
 @require_http_methods(["POST"])
+@csrf_exempt
 @csrf_exempt
 def upload_file(request):
     uploaded_file = request.FILES['file']
