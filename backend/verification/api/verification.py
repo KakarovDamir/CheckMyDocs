@@ -14,12 +14,16 @@ USERPROFILE = fr'C:\Users\{os.getlogin()}'
 
 def verify_document(file_type: str, filename: str, doctype: str = 'driver_license') -> tuple[bool, dict]:
     filename = rf'./media/{filename}'
-    if file_type == 'pdf':
+    is_valid = False
+    msg = ""
+
+    if file_type == '.pdf':
         print("verify pdf")
         is_valid, msg  = verify_from_pdf(filename, doctype)
     elif file_type == ".png" or file_type == ".jpg" or file_type == "image":
         print("verify image")
         is_valid, msg = verify_from_img(filename, doctype)
+    
     return is_valid, msg
 
 
@@ -70,7 +74,7 @@ def verify_from_img(filename: str, doctype: str='driver_license') -> tuple[bool,
 
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     ret, thresh1 = cv2.threshold(gray, 0, 255, cv2.THRESH_OTSU | cv2.THRESH_BINARY_INV)
-    cv2.imwrite('threshold_image.jpg', thresh1)
+    # cv2.imwrite('threshold_image.jpg', thresh1)
     # os.remove('threshold_image.jpg')
 
     try:
@@ -101,7 +105,7 @@ def verify_from_img(filename: str, doctype: str='driver_license') -> tuple[bool,
 def verify_from_pdf(filename: str, doctype: str = 'driver_license') -> tuple[bool, str]:
     if not validate_doc(doctype, filename):
         return False, "wrong_format"
-    elif filename[-4:] == '.pdf':
+    elif filename[-4:] != '.pdf':
         return False, "wrong_format"
     
     reader = PdfReader(filename) 
