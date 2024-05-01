@@ -3,7 +3,7 @@ import re
 
 from re_patterns import *
 
-def verify_pdf(filename: str, doctype: str = 'driver_license', filetype: str = 'pdf'):
+def verify_pdf(filename: str, doctype: str = 'driver_license'):
     reader = PdfReader(filename) 
         
     # printing number of pages in pdf file 
@@ -26,3 +26,16 @@ def verify_pdf(filename: str, doctype: str = 'driver_license', filetype: str = '
     print("issue date: ", issue_date[0].strip())
     print("doc number: ", doc_number[0].strip())
     print("ssn: ", ssn[0].strip())
+
+
+
+
+def id_card(image):
+    pass
+
+def driver_license(image):
+    pass
+
+
+def sat(image):
+    pass

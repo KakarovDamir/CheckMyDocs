@@ -13,30 +13,22 @@ from api.serializers import FileDataSerializer
 def upload_file(request):
 # <<<<<<< backend
     uploaded_file = request.FILES['file']
-    new_file = FileData(file=uploaded_file)
     data = request.body
     print(data)
 
     data = json.loads(request.body)
     print(data)
     
+    file_type = request.POST.get('file_type', '')  # Получаем значение file_type из POST запроса
+    doc_type = request.POST.get('doc_type', '')  # Получаем значение doc_type из POST запроса
+    new_file = FileData(file=uploaded_file, file_type=file_type, doc_type=doc_type)
+
+    new_file.save()
+
     serializer = FileDataSerializer(data=data)
     
     if serializer.is_valid():
         serializer.save()
         return JsonResponse({'message': 'Upload successful'})
-    return JsonResponse({'message': 'Upload failed'})
-    # new_file.save()
-    # return JsonResponse({'message': 'Upload successful'})
-# =======
+    return JsonResponse({'message': 'Upload failed'}, status=400)        
 
-#     if request.method == 'POST' and 'file' in request.FILES:
-#         uploaded_file = request.FILES['file']
-#         file_type = request.POST.get('file_type', '')  # Получаем значение file_type из POST запроса
-#         doc_type = request.POST.get('doc_type', '')  # Получаем значение doc_type из POST запроса
-#         new_file = UploadedFile(file=uploaded_file, file_type=file_type, doc_type=doc_type)
-#         new_file.save()
-#         return JsonResponse({'message': 'Upload successful'})
-#     return JsonResponse({'message': 'Upload failed'}, status=400)
-
-# >>>>>>> master
