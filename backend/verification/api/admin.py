@@ -1,5 +1,5 @@
 from django.contrib import admin
-from api.models import FileData, FakeIDCardDB, FakeDriverLicenseDB
+from api.models import FileData, FakeIDCardDB, FakeDriverLicenseDB, FakeSATDB
 
 @admin.register(FileData)
 class FileDataAdmin(admin.ModelAdmin):
@@ -18,3 +18,9 @@ class FakeDriverLicenseDBAdmin(admin.ModelAdmin):
 class FakeIDCardDBAdmin(admin.ModelAdmin):
     list_display = ['id', 'issue_date', 'doc_number','ssn']
     list_filter = ['issue_date',]
+
+
+@admin.register(FakeSATDB)
+class FakeSATDBAdmin(admin.ModelAdmin):
+    list_display = ['id', 'unique_number','sat_ssn','sat_ict']
+    list_filter = ['unique_number',]
