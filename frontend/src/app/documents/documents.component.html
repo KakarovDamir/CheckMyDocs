@@ -8,17 +8,17 @@
     <div class="documents">
         <div class="custom-select">
             <div>
-                <select class="language-select">
-                    <option value="type" >Тип документа</option>
+                <select class="language-select" (change)="onDocTypeSelected($event)">
+                    <option value="">Тип документа</option>
                     <option value="id" >Удостоверение Личности</option>
-                    <option value="driver-id" >Водительские Права</option>
+                    <option value="drivers_license" >Водительские Права</option>
                     <option value="passport" >Загранпаспорт</option>
-                    <option value="certificate" >Сертификат ЕНТ</option>
-                </select>
+                    <option value="Certificate" >Сертификат ЕНТ</option>
+                </select>                
             </div>
             <div class="file-details">
                 <div class="file-input-container">
-                    <input type="file" id="fileInput" class="file-input" accept="{{accept}}">
+                    <input type="file" id="fileInput" class="file-input" accept="{{accept}}" (change)="onFileSelected($event)">
                     <label for="fileInput" class="custom-file-input">Выберите файл</label>
                     <p><button class="Upload" (click)="onUpload()">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="s-icon s-icon-icon-send" viewBox="0 0 16 16">
@@ -27,6 +27,12 @@
                     </button></p>
                 </div>
             </div>
+        </div>
+        <div class="rulls">
+            <h2>Необходимо:</h2>
+            <p>Выбрать фомат файла - <span *ngIf="!accept">❌</span> <span *ngIf="accept">{{accept}} ✅</span></p>
+            <p>Выбрать тип документа - <span *ngIf="!selectedValue">❌</span> <span *ngIf="selectedValue">{{selectedValue}} ✅</span></p>
+            <p>Выбрать нужный вам файл - <span *ngIf="!selectedFile">❌</span><span *ngIf="selectedFile">{{selectedFile.name}} ✅</span></p>
         </div>
     </div>
 </div>
