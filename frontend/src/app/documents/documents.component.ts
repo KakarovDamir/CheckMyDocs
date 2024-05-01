@@ -54,7 +54,7 @@ export class DocumentsComponent {
     if (this.selectedFile) {  
       this.uploadService.uploadFile(this.selectedFile, this.accept, this.selectedValue)
         .then(response => {
-          console.log('Upload successful', response.message);
+          console.log('Upload successful', response);
                 this.uploadSuccess = true;
                 this.uploadError = false;
         })

@@ -15,7 +15,7 @@ def check_passport(credentials: dict) -> tuple[bool, str]:
 
 
 def check_sat(credentials: dict) -> tuple[bool, str]:
-    pass
+    return True, "valid"
 
 
 check = {
