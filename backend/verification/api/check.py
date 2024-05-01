@@ -1,4 +1,4 @@
-import models
+import api.models
 
 
 def check_id_card(credentials: dict) -> tuple[bool, str]:
