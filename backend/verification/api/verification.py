@@ -8,7 +8,7 @@ from api import credentials
 from api.check import check
 
 
-USERPROFILE = r'C:\Users\Zhkai'
+USERPROFILE = fr'C:\Users\{os.getlogin()}'
 
 
 
@@ -41,7 +41,7 @@ def extract_img_from_pdf(filename):
     reader = PdfReader(filename)
     page = reader.pages[0]
 
-    image_file_object = page.images[0].image
+    image_file_object = page.images[0]
     with open(image_file_object.name, "wb") as fp:
         fp.write(image_file_object.data)
 
@@ -70,10 +70,11 @@ def verify_from_img(filename: str, doctype: str='driver_license') -> tuple[bool,
 
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     ret, thresh1 = cv2.threshold(gray, 0, 255, cv2.THRESH_OTSU | cv2.THRESH_BINARY_INV)
-    # cv2.imwrite('threshold_image.jpg', thresh1)
+    cv2.imwrite('threshold_image.jpg', thresh1)
     # os.remove('threshold_image.jpg')
 
     try:
+        print()
         pytesseract.pytesseract.tesseract_cmd = rf'{USERPROFILE}\AppData\Local\Programs\Tesseract-OCR\tesseract.exe'
     except Exception:
         print("Please install tesseract-ocr for image recognition to work")
