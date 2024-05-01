@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { UploadService } from '../upload.service';
 import { Docs } from '../models';
+import { LanguageService } from '../services/language.service';
 
 @Component({
   selector: 'app-documents',
@@ -21,7 +22,8 @@ export class DocumentsComponent {
   uploadError: boolean = false;
 
   constructor(
-    private uploadService: UploadService
+    private uploadService: UploadService,
+    private languageService: LanguageService
   ) { }
 
   onPDF(){
@@ -57,5 +59,12 @@ export class DocumentsComponent {
     }else{
       console.error('Upload error', 'Please select a file, a document type and a file type');
     }
+  }
+  selectedLanguage: string = 'rus';
+
+  ngOnInit(): void {
+    this.languageService.getSelectedLanguage().subscribe(language => {
+      this.selectedLanguage = language;
+    });
   }
 }
