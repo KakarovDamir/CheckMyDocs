@@ -1,6 +1,6 @@
 
 
-
+    
 def check_id_card(credentials: dict) -> tuple[bool, str]:
     return True, "valid"
     
