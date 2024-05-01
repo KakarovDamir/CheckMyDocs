@@ -2,7 +2,7 @@
     <div class="container">
         <div class="document-upload">
             <h1>Хотите проверить документ на подлинность?</h1>
-            <p>Какой формат поддерживает:</p>
+            <p>Выберите формат:</p>
             <button (click)="onPDF()">PDF</button>
             <button (click)="onImage()">Image</button>
         </div>
@@ -31,19 +31,19 @@
             </div>
             <div class="rulls">
                 <h2>Необходимо:</h2>
-                <p>1. Выбрать формат файла - <span *ngIf="!accept">❌</span> <span *ngIf="accept">{{accept}} ✅</span></p>
-                <p>2. Выбрать тип документа - <span *ngIf="!selectedValue">❌</span> <span *ngIf="selectedValue">{{selectedValue}} ✅</span></p>
-                <p>3. Выбрать нужный вам файл - <span *ngIf="!selectedFile">❌</span><span *ngIf="selectedFile">{{selectedFile.name}} ✅</span></p>
+                <p><b>1.</b> Выбрать формат файла - <span *ngIf="!accept">❌</span> <span *ngIf="accept">{{accept}} ✅</span></p>
+                <p><b>2.</b> Выбрать тип документа - <span *ngIf="!selectedValue">❌</span> <span *ngIf="selectedValue">{{selectedValue}} ✅</span></p>
+                <p><b>3.</b> Выбрать нужный вам файл - <span *ngIf="!selectedFile">❌</span><span *ngIf="selectedFile">{{selectedFile.name}} ✅</span></p>
             </div>
                 <div class="success-message" *ngIf="false">
                     <img src="../assets/tick.png" alt="">
                     <h3>Проверка завершена успешно!</h3>
                     <p>Ваш документ успешно прошел проверку на подлинность и действительность срока годности. Мы рады сообщить, что все параметры соответствуют необходимым стандартам. Вы можете быть уверены в законности и актуальности вашего документа. Спасибо за доверие к нашему сервису!</p>
                 </div>
-                <div class="error-message" *ngIf="false">
+                <div class="error-message" *ngIf="uploadError">
                     <img src="../assets/rejected.png" alt=""> 
-                    <h3>Ваш документ не прошел проверку на подлинность!</h3>
-                    <p>Мы обнаружили, что предоставленный документ не соответствует стандартам подлинности. Это может быть связано с рядом факторов, включая ошибки в документе или его несоответствие официальным данным.</p>
+                    <h3>Отправлен пустой файл:</h3>
+                    <p>Мы заметили, что вы отправили пустое сообщение и не выбрали никакой файл для проверки. Выберите документ/изображение</p>
                 </div>
                 <div class="expired" *ngIf="false">
                     <img src="../assets/expired.png" alt=""> 
@@ -60,7 +60,7 @@
     <div class="container">
         <div class="document-upload">
             <h1>Do you want to check the authenticity of the document?</h1>
-            <p>What format does it support:</p>
+            <p>Select the format:</p>
             <button (click)="onPDF()">PDF</button>
             <button (click)="onImage()">Image</button>
         </div>
@@ -89,19 +89,19 @@
             </div>
             <div class="rulls">
                 <h2>Necessary:</h2>
-                <p>1. Choose a file format - <span *ngIf="!accept">❌</span> <span *ngIf="accept">{{accept}} ✅</span></p>
-                <p>2. Choose the document type - <span *ngIf="!selectedValue">❌</span> <span *ngIf="selectedValue">{{selectedValue}} ✅</span></p>
-                <p>3. Select the file you need - <span *ngIf="!selectedFile">❌</span><span *ngIf="selectedFile">{{selectedFile.name}} ✅</span></p>
+                <p><b>1.</b> Choose a file format - <span *ngIf="!accept">❌</span> <span *ngIf="accept">{{accept}} ✅</span></p>
+                <p><b>2.</b> Choose the document type - <span *ngIf="!selectedValue">❌</span> <span *ngIf="selectedValue">{{selectedValue}} ✅</span></p>
+                <p><b>3.</b> Select the file you need - <span *ngIf="!selectedFile">❌</span><span *ngIf="selectedFile">{{selectedFile.name}} ✅</span></p>
             </div>
                 <div class="success-message" *ngIf="false">
                     <img src="../assets/tick.png" alt="">
                     <h3>Verification completed successfully!</h3>
                     <p>Your document has been successfully verified for authenticity and validity of the expiration date. We are pleased to inform you that all parameters meet the required standards. You can be sure of the legality and relevance of your document. Thank you for trusting our service!</p>
                 </div>
-                <div class="error-message" *ngIf="false">
+                <div class="error-message" *ngIf="uploadError">
                     <img src="../assets/rejected.png" alt=""> 
-                    <h3>Verification failed!</h3>
-                    <p>We found that the document provided does not meet the standards of authenticity. This may be due to a number of factors, including errors in the document or its inconsistency with official data.</p>
+                    <h3>An empty file was sent:</h3>
+                    <p> We noticed that you sent an empty message and did not select any file to check. Select a document/image.</p>
                 </div>
                 <div class="expired" *ngIf="false">
                     <img src="../assets/expired.png" alt=""> 
@@ -116,7 +116,7 @@
     <div class="container">
         <div class="document-upload">
             <h1>Құжаттың түпнұсқалығын тексергіңіз келе ме?</h1>
-            <p>Қандай форматты қолдайды:</p>
+            <p>Құжат форматын таңдаңыз:</p>
             <button (click)="onPDF()">PDF</button>
             <button (click)="onImage()">Image</button>
         </div>
@@ -145,19 +145,19 @@
             </div>
             <div class="rulls">
                 <h2>Қажет:</h2>
-                <p>1. Құжат форматың таңдау - <span *ngIf="!accept">❌</span> <span *ngIf="accept">{{accept}} ✅</span></p>
-                <p>2. Құжат түрін таңдау - <span *ngIf="!selectedValue">❌</span> <span *ngIf="selectedValue">{{selectedValue}} ✅</span></p>
-                <p>3. Қажетті құжатты таңдау - <span *ngIf="!selectedFile">❌</span><span *ngIf="selectedFile">{{selectedFile.name}} ✅</span></p>
+                <p><b>1.</b>Құжат форматын таңдау - <span *ngIf="!accept">❌</span> <span *ngIf="accept">{{accept}} ✅</span></p>
+                <p><b>2.</b>Құжат түрін таңдау - <span *ngIf="!selectedValue">❌</span> <span *ngIf="selectedValue">{{selectedValue}} ✅</span></p>
+                <p><b>3.</b>Қажетті құжатты таңдау - <span *ngIf="!selectedFile">❌</span><span *ngIf="selectedFile">{{selectedFile.name}} ✅</span></p>
             </div>
                 <div class="success-message" *ngIf="false">
                     <img src="../assets/tick.png" alt="">
                     <h3>Тексеру сәтті аяқталды!</h3>
                     <p>Сіздің құжатыңыз жарамдылық мерзімі мен жарамдылығын тексеруден сәтті өтті. Біз барлық параметрлер қажетті стандарттарға сәйкес келетінін хабарлауға қуаныштымыз. Сіз құжаттың заңдылығы мен өзектілігіне сенімді бола аласыз. Біздің қызметке сенгеніңіз үшін рахмет!</p>
                 </div>
-                <div class="error-message" *ngIf="false">
+                <div class="error-message" *ngIf="uploadError">
                     <img src="../assets/rejected.png" alt=""> 
-                    <h3>Сіздің құжатыңыз түпнұсқалығын тексеруден өткен жоқ!</h3>
-                    <p>Біз ұсынылған құжат түпнұсқалық стандарттарға сәйкес келмейтінін анықтадық. Бұл бірқатар факторларға, соның ішінде құжаттағы қателіктерге немесе оның ресми деректерге сәйкес келмеуіне байланысты болуы мүмкін.</p>
+                    <h3>Бос файл жіберілді:</h3>
+                    <p> біз сіз бос хабарлама жібергеніңізді және тексеру үшін бірде-бір файлды таңдамағаныңызды байқадық. Құжат/суретті таңдаңыз.</p>
                 </div>
                 <div class="expired" *ngIf="false">
                     <img src="../assets/expired.png" alt=""> 

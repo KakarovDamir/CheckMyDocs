@@ -145,12 +145,12 @@
   border-radius: 16px;
   width: 70%;
   margin:auto;
-  margin-top: 5%;
+  margin-top: 8%;
 }
 
 .error-message h3{
   margin-left: 10%;
-  margin-top: -9%;
+  margin-top: -7%;
 }
 .expired {
   background-color: #ffeeba; /* Желтый цвет фона */

@@ -17,6 +17,7 @@ export class DocumentsComponent {
   selectedValue: string = '';
   accept: string = '';
   doc!: Docs;
+  selectedLanguage: string = 'rus';
 
   uploadSuccess: boolean = false;
   uploadError: boolean = false;
@@ -25,6 +26,12 @@ export class DocumentsComponent {
     private uploadService: UploadService,
     private languageService: LanguageService
   ) { }
+
+  ngOnInit(): void {
+    this.languageService.getSelectedLanguage().subscribe(language => {
+      this.selectedLanguage = language;
+    });
+  }
 
   onPDF(){
     this.accept = '.pdf';
@@ -47,7 +54,7 @@ export class DocumentsComponent {
     if (this.selectedFile) {  
       this.uploadService.uploadFile(this.selectedFile, this.accept, this.selectedValue)
         .then(response => {
-          console.log('Upload successful', response);
+          console.log('Upload successful', response.message);
                 this.uploadSuccess = true;
                 this.uploadError = false;
         })
@@ -57,14 +64,7 @@ export class DocumentsComponent {
                 this.uploadError = true;
         });
     }else{
-      console.error('Upload error', 'Please select a file, a document type and a file type');
+      this.uploadError = true;
     }
-  }
-  selectedLanguage: string = 'rus';
-
-  ngOnInit(): void {
-    this.languageService.getSelectedLanguage().subscribe(language => {
-      this.selectedLanguage = language;
-    });
   }
 }
