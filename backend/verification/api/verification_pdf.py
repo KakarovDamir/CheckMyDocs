@@ -1,41 +1,26 @@
 from pypdf import PdfReader 
 import re
 
-from re_patterns import *
-
-def verify_pdf(filename: str, doctype: str = 'driver_license'):
+import credentials
+ 
+def verify_pdf(filename: str, doctype: str = 'driver_license') -> tuple[bool, dict]:
     reader = PdfReader(filename) 
-        
-    # printing number of pages in pdf file 
     print(len(reader.pages)) 
-
     page = reader.pages[0] 
 
-    extracted = page.extract_text() 
-    print(extracted)
+    extracted_text = page.extract_text() 
+    print(extracted_text)
 
-    issue_date = re.findall(issue_date_pattern, extracted)
-    doc_number = re.findall(doc_number_pattern, extracted)
-    ssn = re.findall(ssn_pattern, extracted)
+    get_credentials = {
+        'id_card': credentials.id_card,
+        'driver_license': credentials.driver_license,
+        'passport': credentials.passport,
+        'sat': credentials.sat,
+    }
+    response, msg, ok = get_credentials[doctype](extracted_text)
 
-    print()
-    print()
-    print()
-    print()
-
-    print("issue date: ", issue_date[0].strip())
-    print("doc number: ", doc_number[0].strip())
-    print("ssn: ", ssn[0].strip())
-
-
-
-
-def id_card(image):
-    pass
-
-def driver_license(image):
-    pass
-
-
-def sat(image):
-    pass
+    if not ok:
+        return False, msg
+    
+    else:
+        return True, response

@@ -13,22 +13,15 @@ from api.serializers import FileDataSerializer
 @csrf_exempt
 def upload_file(request):
     uploaded_file = request.FILES['file']
-    data = request.body
-    print(data)
-
-    data = json.loads(request.body)
-    print(data)
     
     file_type = request.POST.get('file_type', '')  # Получаем значение file_type из POST запроса
     doc_type = request.POST.get('doc_type', '')  # Получаем значение doc_type из POST запроса
     new_file = FileData(file=uploaded_file, file_type=file_type, doc_type=doc_type)
 
     new_file.save()
+    print(uploaded_file.name)
 
-    serializer = FileDataSerializer(data=data)
-    
-    if serializer.is_valid():
-        serializer.save()
-        return JsonResponse({'message': 'Upload successful'})
-    return JsonResponse({'message': 'Upload failed'}, status=400)        
+    if (upload_file is None) or (not upload_file):
+        return JsonResponse({'message': 'Upload failed'}, status=400)        
 
+    return JsonResponse({'message': 'Upload successful'}, status=201)
