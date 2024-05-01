@@ -11,8 +11,17 @@ class FakeIDCardDB(models.Model):
     issue_date = models.CharField(max_length=20)
     doc_number = models.CharField(max_length=20)
     ssn = models.CharField(max_length=20)
+    verdict = models.CharField(max_length=20)
 
 
 class FakeDriverLicenseDB(models.Model):
     license_number = models.CharField(max_length=20)
     valid_date = models.CharField(max_length=20)
+    verdict = models.CharField(max_length=20)
+
+
+class FakeSATDB(models.Model):
+    unique_number = models.CharField(max_length=20)
+    sat_ssn = models.CharField(max_length=20)
+    sat_ict = models.CharField(max_length=20)
+    verdict = models.CharField(max_length=20)

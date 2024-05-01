@@ -16,3 +16,6 @@ valid_date_pattern = r'4а\) \d\d\.\d\d\.\d\d\d\d'
 unique_number_pattern = r'\d{1,2}-\d\d\d\d-\d\d{1,2}-\d{9,10}-\d{1,2}-\d{1,2}'
 sat_ssn_pattern = r":\d{12}"
 sat_ict_pattern = r"-\d{9}"
+
+
+# TODO passport patterns 

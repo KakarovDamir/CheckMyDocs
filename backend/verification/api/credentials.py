@@ -49,9 +49,9 @@ def driver_license(extracted_text: str) -> tuple[dict, str, bool]:
     return cred_obj, "", True
 
 
-
+# TODO: implement passport verification
 def passport(extracted_text: str) -> tuple[dict, str, bool]:
-    pass
+    return None, "text_not_recognizeable", False
 
 
 def sat(extracted_text: str) -> tuple[dict, str, bool]:
