@@ -13,7 +13,7 @@
                     <option value="id" >Удостоверение Личности</option>
                     <option value="drivers_license" >Водительские Права</option>
                     <option value="passport" >Загранпаспорт</option>
-                    <option value="Certificate" >Сертификат ЕНТ</option>
+                    <option value="sat" >Сертификат ЕНТ</option>
                 </select>                
             </div>
             <div class="file-details">
@@ -30,9 +30,24 @@
         </div>
         <div class="rulls">
             <h2>Необходимо:</h2>
-            <p>Выбрать фомат файла - <span *ngIf="!accept">❌</span> <span *ngIf="accept">{{accept}} ✅</span></p>
-            <p>Выбрать тип документа - <span *ngIf="!selectedValue">❌</span> <span *ngIf="selectedValue">{{selectedValue}} ✅</span></p>
-            <p>Выбрать нужный вам файл - <span *ngIf="!selectedFile">❌</span><span *ngIf="selectedFile">{{selectedFile.name}} ✅</span></p>
+            <p>1. Выбрать формат файла - <span *ngIf="!accept">❌</span> <span *ngIf="accept">{{accept}} ✅</span></p>
+            <p>2. Выбрать тип документа - <span *ngIf="!selectedValue">❌</span> <span *ngIf="selectedValue">{{selectedValue}} ✅</span></p>
+            <p>3. Выбрать нужный вам файл - <span *ngIf="!selectedFile">❌</span><span *ngIf="selectedFile">{{selectedFile.name}} ✅</span></p>
         </div>
+            <div class="success-message" *ngIf="false">
+                <img src="../assets/tick.png" alt="">
+                <h3>Проверка завершена успешно!</h3>
+                <p>Ваш документ успешно прошел проверку на подлинность и действительность срока годности. Мы рады сообщить, что все параметры соответствуют необходимым стандартам. Вы можете быть уверены в законности и актуальности вашего документа. Спасибо за доверие к нашему сервису!</p>
+            </div>
+            <div class="error-message" *ngIf="false">
+                <img src="../assets/rejected.png" alt=""> 
+                <h3>Ваш документ не прошел проверку на подлинность!</h3>
+                <p>Мы обнаружили, что предоставленный документ не соответствует стандартам подлинности. Это может быть связано с рядом факторов, включая ошибки в документе или его несоответствие официальным данным.</p>
+            </div>
+            <div class="expired" *ngIf="false">
+                <img src="../assets/expired.png" alt=""> 
+                <h3>Срок действия вашего документа истек!</h3>
+                <p>Мы обнаружили, что срок действия предоставленного вами документа истек. Это означает, что документ больше не может быть использован в официальных целях. Мы настоятельно рекомендуем вам обновить этот документ в соответствующих органах как можно скорее</p>
+            </div>
     </div>
 </div>

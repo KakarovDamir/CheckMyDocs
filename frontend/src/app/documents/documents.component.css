@@ -118,3 +118,51 @@
   margin-left: 8%;
   width: 90%;
 }
+
+.rulls p{
+  margin-top: -2%;
+}
+
+.success-message {
+  background-color: #c3e6cb; /* Зеленый цвет фона */
+  color: #155724; /* Цвет текста */
+  padding: 25px;
+  border-radius: 16px;
+  width: 70%;
+  margin:auto;
+  margin-top: 5%;
+}
+.success-message h3{
+  margin-left: 10%;
+  margin-top: -7%;
+}
+
+.error-message {
+  background-color: #f8d7da; /* Красный цвет фона */
+  color: #721c24; /* Цвет текста */
+  padding: 10px;
+  padding: 25px;
+  border-radius: 16px;
+  width: 70%;
+  margin:auto;
+  margin-top: 5%;
+}
+
+.error-message h3{
+  margin-left: 10%;
+  margin-top: -9%;
+}
+.expired {
+  background-color: #ffeeba; /* Желтый цвет фона */
+  color: #856404; /* Цвет текста */
+  padding: 25px;
+  border-radius: 16px;
+  width: 70%;
+  margin:auto;
+  margin-top: 3%;
+}
+
+.expired h3{
+  margin-left: 10%;
+  margin-top: -10%;
+}

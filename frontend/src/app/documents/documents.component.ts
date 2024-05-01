@@ -17,6 +17,9 @@ export class DocumentsComponent {
   accept: string = '';
   doc!: Docs;
 
+  uploadSuccess: boolean = false;
+  uploadError: boolean = false;
+
   constructor(
     private uploadService: UploadService
   ) { }
@@ -43,10 +46,13 @@ export class DocumentsComponent {
       this.uploadService.uploadFile(this.selectedFile, this.accept, this.selectedValue)
         .then(response => {
           console.log('Upload successful', response);
+                this.uploadSuccess = true;
+                this.uploadError = false;
         })
         .catch(error => {
           console.error('Upload error', error);
-          // Handle error
+                this.uploadSuccess = false;
+                this.uploadError = true;
         });
     }else{
       console.error('Upload error', 'Please select a file, a document type and a file type');
