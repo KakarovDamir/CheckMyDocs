@@ -29,8 +29,8 @@ def verify_document(file_type: str, filename: str, doctype: str = 'driver_licens
 
 
 def validate_doc(doctype: str, filename: str) -> bool:
-    doc_types = ['driver_license', 'passport', 'id', 'sat']
-    if doctype not in doc_types:
+    doc_types = ['drivers_license', 'passport', 'id', 'sat']
+    if doctype.strip() not in doc_types:
         print("invalid doctype")
         return False
     # elif (filename[-4:] != ".jpg") or (filename[-4:] != ".png") or (filename[-5:] != ".jpeg") or (filename[-4:] != ".pdf"):
@@ -58,7 +58,7 @@ def extract_img_from_pdf(filename):
 
 
 
-def verify_from_img(filename: str, doctype: str='driver_license') -> tuple[bool, str]:
+def verify_from_img(filename: str, doctype: str='drivers_license') -> tuple[bool, str]:
     if not validate_doc(doctype, filename):
         print("doc type is not valid", doctype)
         return False, "wrong_format"
@@ -86,9 +86,11 @@ def verify_from_img(filename: str, doctype: str='driver_license') -> tuple[bool,
 
     extracted_text = pytesseract.image_to_string(thresh1, lang='rus')
 
+    # print(extracted_text)
+
     get_credentials = {
         'id': credentials.id_card,
-        'driver_license': credentials.driver_license,
+        'drivers_license': credentials.driver_license,
         'passport': credentials.passport,
         'sat': credentials.sat,
     }
@@ -102,7 +104,7 @@ def verify_from_img(filename: str, doctype: str='driver_license') -> tuple[bool,
 
 
 
-def verify_from_pdf(filename: str, doctype: str = 'driver_license') -> tuple[bool, str]:
+def verify_from_pdf(filename: str, doctype: str = 'drivers_license') -> tuple[bool, str]:
     if not validate_doc(doctype, filename):
         return False, "wrong_format"
     elif filename[-4:] != '.pdf':
@@ -117,7 +119,7 @@ def verify_from_pdf(filename: str, doctype: str = 'driver_license') -> tuple[boo
 
     get_credentials = {
         'id': credentials.id_card,
-        'driver_license': credentials.driver_license,
+        'drivers_license': credentials.driver_license,
         'passport': credentials.passport,
         'sat': credentials.sat,
     }

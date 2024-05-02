@@ -22,9 +22,9 @@ def id_card(extracted_text: str) -> tuple[dict, str, bool]:
         return None, "text_not_recognizeable", False
     
     cred_obj = {
-        "issue date: ", issue_date,
-        "doc number: ", doc_number,
-        "ssn: ", ssn
+        "issue_date": issue_date,
+        "doc_number": doc_number,
+        "ssn": ssn
     }
 
     return cred_obj, "", True
@@ -41,9 +41,10 @@ def driver_license(extracted_text: str) -> tuple[dict, str, bool]:
     if not check_nulls(license_number, valid_date):
         return None, "text_not_recognizeable", False
 
+
     cred_obj = {
-        "license number: ", license_number,
-        "valid date: ", valid_date
+        "license_number": license_number,
+        "valid_date": valid_date
     }
 
     return cred_obj, "", True
@@ -66,9 +67,9 @@ def sat(extracted_text: str) -> tuple[dict, str, bool]:
         return None, "text_not_recognizeable", False
 
     cred_obj = {
-        "unique number: ", unique_number,
-        "sat ssn: ", sat_ssn,
-        "sat ict: ", sat_ict
+        "unique_number": unique_number,
+        "sat_ssn": sat_ssn,
+        "sat_ict": sat_ict
     }
 
     return cred_obj, "", True

@@ -8,7 +8,7 @@ id_ssn_pattern = r"\d\d\d\d\d\d\d\d\d\d\d\d"
 surname_pattern = r'1\. [А-Я][а-я]+ \/'
 name_pat_pattern = r'2\. [А-Я][а-я]+ [А-Я][а-я]+ \/'
 
-license_number_pattern = r'\d{10}'
+license_number_pattern = r'\d{10}\n'
 valid_date_pattern = r'4а\) \d\d\.\d\d\.\d\d\d\d'
 
 
