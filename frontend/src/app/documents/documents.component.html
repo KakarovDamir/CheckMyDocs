@@ -3,7 +3,6 @@
         <div class="document-upload">
             <h1>Хотите проверить документ на подлинность?</h1>
             <p>Выберите формат:</p>
-            <p>Выберите формат:</p>
             <button (click)="onPDF()">PDF</button>
             <button (click)="onImage()">Image</button>
         </div>
@@ -39,7 +38,7 @@
                 <div class="success-message" *ngIf="false">
                     <img src="../assets/tick.png" alt="">
                     <h3>Проверка завершена успешно!</h3>
-                    <p>Ваш документ успешно прошел проверку на подлинность и действительность срока годности. Мы рады сообщить, что все параметры соответствуют необходимым стандартам. Вы можете быть уверены в законности и актуальности вашего документа. Спасибо за доверие к нашему сервису!</p>
+                    <p>{{user_output}}</p>
                 </div>
                 <div class="error-message" *ngIf="uploadError">
                     <img src="../assets/rejected.png" alt=""> 
@@ -49,7 +48,7 @@
                 <div class="expired" *ngIf="false">
                     <img src="../assets/expired.png" alt=""> 
                     <h3>Срок действия вашего документа истек!</h3>
-                    <p>Мы обнаружили, что срок действия предоставленного вами документа истек. Это означает, что документ больше не может быть использован в официальных целях. Мы настоятельно рекомендуем вам обновить этот документ в соответствующих органах как можно скорее</p>
+                    <p>{{user_output}}</p>
                 </div>
         </div>
     </div>
@@ -97,7 +96,7 @@
                 <div class="success-message" *ngIf="false">
                     <img src="../assets/tick.png" alt="">
                     <h3>Verification completed successfully!</h3>
-                    <p>Your document has been successfully verified for authenticity and validity of the expiration date. We are pleased to inform you that all parameters meet the required standards. You can be sure of the legality and relevance of your document. Thank you for trusting our service!</p>
+                    <p>{{user_output}}</p>
                 </div>
                 <div class="error-message" *ngIf="uploadError">
                     <img src="../assets/rejected.png" alt=""> 
@@ -107,7 +106,7 @@
                 <div class="expired" *ngIf="false">
                     <img src="../assets/expired.png" alt=""> 
                     <h3>Your document has expired!</h3>
-                    <p>We have discovered that the document you provided has expired. This means that the document can no longer be used for official purposes. We strongly recommend that you update this document with the relevant authorities as soon as possible</p>
+                    <p>{{user_output}}</p>
                 </div>
         </div>
     </div>
@@ -153,7 +152,7 @@
                 <div class="success-message" *ngIf="false">
                     <img src="../assets/tick.png" alt="">
                     <h3>Тексеру сәтті аяқталды!</h3>
-                    <p>Сіздің құжатыңыз жарамдылық мерзімі мен жарамдылығын тексеруден сәтті өтті. Біз барлық параметрлер қажетті стандарттарға сәйкес келетінін хабарлауға қуаныштымыз. Сіз құжаттың заңдылығы мен өзектілігіне сенімді бола аласыз. Біздің қызметке сенгеніңіз үшін рахмет!</p>
+                    <p>{{user_output}}</p>
                 </div>
                 <div class="error-message" *ngIf="uploadError">
                     <img src="../assets/rejected.png" alt=""> 
@@ -163,7 +162,7 @@
                 <div class="expired" *ngIf="false">
                     <img src="../assets/expired.png" alt=""> 
                     <h3>Сіздің құжатыңыздың мерзімі аяқталды!</h3>
-                    <p>Біз сіз берген құжаттың мерзімі аяқталғанын анықтадық. Бұл құжатты енді ресми мақсатта пайдалану мүмкін емес дегенді білдіреді. Бұл құжатты мүмкіндігінше тезірек тиісті органдарда жаңартуды ұсынамыз</p>
+                    <p>{{user_output}}</p>
                 </div>
         </div>
     </div>

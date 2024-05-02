@@ -13,14 +13,17 @@ import { LanguageService } from '../services/language.service';
   styleUrl: './documents.component.css'
 })
 export class DocumentsComponent {
-  selectedFile!: File;
+  selectedFile!: File | null;
   selectedValue: string = '';
   accept: string = '';
   doc!: Docs;
   selectedLanguage: string = 'rus';
+  user_output: string = '';
+  id!: number;
 
   uploadSuccess: boolean = false;
   uploadError: boolean = false;
+  uploadProblem: boolean = false;
 
   constructor(
     private uploadService: UploadService,
@@ -30,6 +33,16 @@ export class DocumentsComponent {
   ngOnInit(): void {
     this.languageService.getSelectedLanguage().subscribe(language => {
       this.selectedLanguage = language;
+      if(language === 'rus'){
+        this.id = 1;
+      }
+      else if(language === 'en'){
+        this.id = 2;
+      }
+      else{
+        this.id = 3;
+      }
+      console.log(this.id);
     });
   }
 
@@ -54,17 +67,33 @@ export class DocumentsComponent {
     if (this.selectedFile) {  
       this.uploadService.uploadFile(this.selectedFile, this.accept, this.selectedValue)
         .then(response => {
-          console.log('Upload successful', response);
-                this.uploadSuccess = true;
-                this.uploadError = false;
+          // if(response.is_upload === true){
+          //   if(response.is_valid === true){
+          //     this.user_output = response.message;
+          //     this.uploadSuccess = true;
+          //     this.uploadError = false;
+          //     this.uploadProblem = false;
+          //   }
+          //   else{
+          //     this.user_output = response.answer[response][this.id];
+          //     this.uploadProblem = true;
+          //     this.uploadSuccess = false;
+          //     this.uploadError = false;
+          //   }
+          // }else{
+          //   this.uploadError = true;
+          //   this.uploadSuccess = false;
+          //   this.uploadProblem = false;
+          // }
+          console.log(response);
         })
-        .catch(error => {
-          console.error('Upload error', error);
-                this.uploadSuccess = false;
-                this.uploadError = true;
-        });
     }else{
       this.uploadError = true;
+      this.uploadSuccess = false;
+      this.uploadProblem = false;
     }
+    this.selectedFile = null;
+    this.selectedValue = '';
+    this.accept = '';
   }
 }
