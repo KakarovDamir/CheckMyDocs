@@ -21,7 +21,7 @@ class FakeDriverLicenseDB(models.Model):
 
 
 class FakeSATDB(models.Model):
-    unique_number = models.CharField(max_length=20)
+    unique_number = models.CharField(max_length=25)
     sat_ssn = models.CharField(max_length=20)
     sat_ict = models.CharField(max_length=20)
     verdict = models.CharField(max_length=20)
