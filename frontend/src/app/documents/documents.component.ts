@@ -67,25 +67,25 @@ export class DocumentsComponent {
     if (this.selectedFile) {  
       this.uploadService.uploadFile(this.selectedFile, this.accept, this.selectedValue)
         .then(response => {
-          // if(response.is_upload === true){
-          //   if(response.is_valid === true){
-          //     this.user_output = response.message;
-          //     this.uploadSuccess = true;
-          //     this.uploadError = false;
-          //     this.uploadProblem = false;
-          //   }
-          //   else{
-          //     this.user_output = response.answer[response][this.id];
-          //     this.uploadProblem = true;
-          //     this.uploadSuccess = false;
-          //     this.uploadError = false;
-          //   }
-          // }else{
-          //   this.uploadError = true;
-          //   this.uploadSuccess = false;
-          //   this.uploadProblem = false;
-          // }
-          console.log(response);
+          if(response.is_uploaded === true){
+            if(response.is_valid === true){
+              this.uploadSuccess = true;
+              this.uploadError = false;
+              this.uploadProblem = false;
+            }
+            else{
+              if (response.message === "expired"){
+                this.uploadError = false;
+                this.uploadSuccess = false;
+                this.uploadProblem = true;
+              }
+            }
+          }else{
+            this.uploadError = true;
+            this.uploadSuccess = false;
+            this.uploadProblem = false;
+          }
+          console.log(response.is_uploaded, response.is_valid, response.message);
         })
     }else{
       this.uploadError = true;
