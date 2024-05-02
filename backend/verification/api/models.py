@@ -8,7 +8,7 @@ class FileData(models.Model):
 
 
 class FakeIDCardDB(models.Model):
-    issue_date = models.CharField(max_length=20)
+    issue_date = models.CharField(max_length=25)
     doc_number = models.CharField(max_length=20)
     ssn = models.CharField(max_length=20)
     verdict = models.CharField(max_length=20)
@@ -21,7 +21,7 @@ class FakeDriverLicenseDB(models.Model):
 
 
 class FakeSATDB(models.Model):
-    unique_number = models.CharField(max_length=20)
+    unique_number = models.CharField(max_length=25)
     sat_ssn = models.CharField(max_length=20)
     sat_ict = models.CharField(max_length=20)
     verdict = models.CharField(max_length=20)
