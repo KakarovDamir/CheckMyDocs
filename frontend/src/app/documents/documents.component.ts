@@ -12,11 +12,12 @@ import { LanguageService } from '../services/language.service';
   styleUrl: './documents.component.css'
 })
 export class DocumentsComponent {
-  selectedFile!: File | null;
+  selectedFile!: File;
   selectedValue: string = '';
   accept: string = '';
   selectedLanguage: string = 'rus';
   user_output: string = '';
+  loaded!: boolean;
 
   uploadSuccess: boolean = false;
   uploadError: boolean = false;
@@ -35,6 +36,8 @@ export class DocumentsComponent {
     this.languageService.getSelectedLanguage().subscribe(language => {
       this.selectedLanguage = language;
     });
+
+    this.loaded = false;
   }
 
   onPDF(){
@@ -53,6 +56,7 @@ export class DocumentsComponent {
   }
 
   onUpload(): void {
+    this.loaded = false;
     if (this.selectedFile) {  
       this.uploadService.uploadFile(this.selectedFile, this.accept, this.selectedValue)
         .then(response => {
@@ -97,15 +101,17 @@ export class DocumentsComponent {
             this.uploadSuccess = false;
             this.uploadExpired = false;
           }
+          this.loaded = true;
           console.log(response.is_uploaded, response.is_valid, response.message);
         })
     }else{
       this.uploadError = true;
       this.uploadSuccess = false;
       this.uploadExpired = false;
+      this.docInvalidCredentials = false;
+      this.docWrongFormat = false;
+      this.docTextNotRecognizeable = false;
+      this.loaded = true;
     }
-    this.selectedFile = null;
-    this.selectedValue = '';
-    this.accept = '';
   }
 }
