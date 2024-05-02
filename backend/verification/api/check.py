@@ -12,9 +12,11 @@ def check_id_card(credentials: dict) -> tuple[bool, str]:
     print(verdict[0]['verdict'])
 
     if not verdict:
+        print("wr here")
         return False, "wrong_credentials"
 
     if verdict == "valid":
+        print("true")
         return True, "valid"
     else :
         return False, verdict[0]['verdict']
