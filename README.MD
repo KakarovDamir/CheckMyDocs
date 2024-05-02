@@ -33,7 +33,7 @@
 ### Установка
 
 ```
-git clone https://github.com/KakarovDamir/ILoveDogs.git
+https://github.com/KakarovDamir/CheckMyDocs.git
 cd frontend && npm install && (ng serve | npm start)
 
 cd backend && cd verification && myvenv\scripts\activate:  
