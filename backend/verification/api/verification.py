@@ -74,7 +74,7 @@ def verify_from_img(filename: str, doctype: str='drivers_license') -> tuple[bool
 
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     ret, thresh1 = cv2.threshold(gray, 0, 255, cv2.THRESH_OTSU | cv2.THRESH_BINARY_INV)
-    # cv2.imwrite('threshold_image.jpg', thresh1)
+    cv2.imwrite('threshold_image.jpg', thresh1)
     # os.remove('threshold_image.jpg')
 
     try:
@@ -86,7 +86,7 @@ def verify_from_img(filename: str, doctype: str='drivers_license') -> tuple[bool
 
     extracted_text = pytesseract.image_to_string(thresh1, lang='rus')
 
-    # print(extracted_text)
+    print(extracted_text)
 
     get_credentials = {
         'id': credentials.id_card,

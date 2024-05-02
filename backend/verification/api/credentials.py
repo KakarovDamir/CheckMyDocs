@@ -11,9 +11,9 @@ def check_nulls(*credentials) -> bool:
 
 def id_card(extracted_text: str) -> tuple[dict, str, bool]:
     try:
-        issue_date = re.findall(issue_date_pattern, extracted_text)[0].strip()
         doc_number = re.findall(doc_number_pattern, extracted_text)[0].strip()
         ssn = re.findall(id_ssn_pattern, extracted_text)[0].strip()
+        issue_date = re.findall(issue_date_pattern, extracted_text)[0].strip()
     except IndexError:
         return None, "text_not_recognizeable", False
     
