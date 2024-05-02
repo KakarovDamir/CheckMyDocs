@@ -45,7 +45,22 @@
                     <h3>Отправлен пустой файл:</h3>
                     <p>Мы заметили, что вы отправили пустое сообщение и не выбрали никакой файл для проверки. Выберите документ/изображение</p>
                 </div>
-                <div class="expired" *ngIf="uploadProblem">
+                <div class="error-message" *ngIf="docInvalidCredentials">
+                    <img src="../assets/rejected.png" alt=""> 
+                    <h3>Фэйк документ:</h3>
+                    <p>Предоставленный вами документ не существует, и есть опасения, что он может быть подделан.</p>
+                </div>
+                <div class="error-message" *ngIf="docWrongFormat">
+                    <img src="../assets/rejected.png" alt=""> 
+                    <h3>Неправильный формат документа:</h3>
+                    <p>Похоже, что формат отправленного вами документа не поддерживается нашей системой. На данный момент мы принимаем документы только в форматах: PDF, PNG. Пожалуйста, конвертируйте ваш документ в один из этих форматов и попробуйте отправить его снова. </p>
+                </div>
+                <div class="error-message" *ngIf="docTextNotRecognizeable">
+                    <img src="../assets/rejected.png" alt=""> 
+                    <h3>Плохое качество:</h3>
+                    <p>К сожалению, качество предоставленного вами документа/фотографии недостаточно высоко для того, из-за чего система не может распознать информацию на вашем документе/фотографии. Пожалуйста, убедитесь, что документ или фотография сделаны в хорошем разрешении и при достаточном освещении, затем попробуйте отправить их снова.</p>
+                </div>
+                <div class="expired" *ngIf="uploadExpired">
                     <img src="../assets/expired.png" alt=""> 
                     <h3>Срок действия вашего документа истек!</h3>
                     <p>Мы обнаружили, что срок действия предоставленного вами документа истек. Это означает, что документ больше не может быть использован в официальных целях. Мы настоятельно рекомендуем вам обновить этот документ в соответствующих органах как можно скорее.</p>
@@ -103,7 +118,22 @@
                     <h3>An empty file was sent:</h3>
                     <p> We noticed that you sent an empty message and did not select any file to check. Select a document/image.</p>
                 </div>
-                <div class="expired" *ngIf="uploadProblem">
+                <div class="error-message" *ngIf="docInvalidCredentials">
+                    <img src="../assets/rejected.png" alt=""> 
+                    <h3>Fake document:</h3>
+                    <p>The document you provided does not exist, and there are concerns that it may be forged.</p>
+                </div>
+                <div class="error-message" *ngIf="docWrongFormat">
+                    <img src="../assets/rejected.png" alt=""> 
+                    <h3>Incorrect dock format:</h3>
+                    <p>It looks like the format of the document you sent is not supported by our system. At the moment, we accept documents only in PDF and PNG formats. Please convert your document to one of these formats and try to send it again.</p>
+                </div>
+                <div class="error-message" *ngIf="docTextNotRecognizeable">
+                    <img src="../assets/rejected.png" alt=""> 
+                    <h3>Poor quality:</h3>
+                    <p>Unfortunately, the quality of the document/photo you provided is not high enough for the system to recognize the information on your document/photo. Please make sure that the document or photo was taken in good resolution and with sufficient lighting, then try to send them again.</p>
+                </div>
+                <div class="expired" *ngIf="uploadExpired">
                     <img src="../assets/expired.png" alt=""> 
                     <h3>Your document has expired!</h3>
                     <p>We have discovered that the document you provided has expired. This means that the document can no longer be used for official purposes. We strongly recommend that you update this document with the relevant authorities as soon as possible.</p>
@@ -159,7 +189,22 @@
                     <h3>Бос файл жіберілді:</h3>
                     <p> біз сіз бос хабарлама жібергеніңізді және тексеру үшін бірде-бір файлды таңдамағаныңызды байқадық. Құжат/суретті таңдаңыз.</p>
                 </div>
-                <div class="expired" *ngIf="uploadProblem">
+                <div class="error-message" *ngIf="docInvalidCredentials">
+                    <img src="../assets/rejected.png" alt=""> 
+                    <h3>Жалған құжат:</h3>
+                    <p>Сіз берген құжат жоқ және ол жалған болуы мүмкін деген алаңдаушылық бар.</p>
+                </div>
+                <div class="error-message" *ngIf="docWrongFormat">
+                    <img src="../assets/rejected.png" alt=""> 
+                    <h3>Құжаттың қате форматта жіберілуі:</h3>
+                    <p>Сіз жіберген құжаттың форматы біздің жүйеміз қолдамайтын сияқты. Қазіргі уақытта біз құжаттарды тек PDF, PNG форматтарында қабылдаймыз. Құжатты осы форматтардың біріне түрлендіріп, оны қайтадан жіберуге тырысыңыз.</p>
+                </div>
+                <div class="error-message" *ngIf="docTextNotRecognizeable">
+                    <img src="../assets/rejected.png" alt=""> 
+                    <h3>Нашар сапа:</h3>
+                    <p>Өкінішке орай, сіз жіберген құжаттың/суреттің сапасы жүйе сіздің құжатыңыздағы/фотосуреттегі ақпаратты тани алмайтын нәрсе үшін жеткіліксіз. Құжаттың немесе суреттің жақсы ажыратымдылықта және жеткілікті жарықта түсірілгеніне көз жеткізіңіз, содан кейін оларды қайтадан жіберуге тырысыңыз.</p>
+                </div>
+                <div class="expired" *ngIf="uploadExpired">
                     <img src="../assets/expired.png" alt=""> 
                     <h3>Сіздің құжатыңыздың мерзімі аяқталды!</h3>
                     <p>Біз сіз берген құжаттың мерзімі аяқталғанын анықтадық. Бұл құжатты енді ресми мақсатта пайдалану мүмкін емес дегенді білдіреді. Бұл құжатты мүмкіндігінше тезірек тиісті органдарда жаңартуды ұсынамыз.</p>
