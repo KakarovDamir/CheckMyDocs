@@ -12,9 +12,11 @@ def check_id_card(credentials: dict) -> tuple[bool, str]:
     print(verdict[0]['verdict'])
 
     if not verdict:
-        return False, "wrong_credentials"
+        print("wr here")
+        return False, "invalid_credentials"
 
     if verdict == "valid":
+        print("true")
         return True, "valid"
     else :
         return False, verdict[0]['verdict']
@@ -30,7 +32,7 @@ def check_driver_license(credentials: dict) -> tuple[bool, str]:
     print(verdict[0]['verdict'])
 
     if not verdict:
-        return False, "wrong_credentials"
+        return False, "invalid_credentials"
 
     if verdict == "valid":
         return True, "valid"
@@ -53,7 +55,7 @@ def check_sat(credentials: dict) -> tuple[bool, str]:
     print(verdict[0]['verdict'])
 
     if not verdict:
-        return False, "wrong_credentials"
+        return False, "invalid_credentials"
 
     if verdict == "valid":
         return True, "valid"
